@@ -48,8 +48,8 @@ OECDTaxREV %>% plot_ly(
   mode = 'markers',
   fil=~'') %>%
   layout(title = "Variation of Tax Revenue Across Different Countries",
-         xaxis=list(title="GDP (USD Million)"),
-         yaxis = list(title="Tax Revenue (% of GDP)"),
+         xaxis=list(title="Tax Revenue (% of GDP)"),
+         yaxis = list(title="GDP (USD Million)"),
          hoverlabel = list(font=list(size=10) #size of text when cursor hovered over each point
   ))
 ```
@@ -73,8 +73,8 @@ newdata %>% plot_ly(
   mode = 'markers',
   fil=~'') %>%
   layout(title = "Variation of Tax Revenue Across Different Countries",
-         xaxis=list(title="GDP (USD Million)"),
-         yaxis = list(title="Tax Revenue (% of GDP)"),
+         xaxis=list(title="Tax Revenue (% of GDP)"),
+         yaxis = list(title="GDP (USD Million)"),
          hoverlabel = list(font=list(size=10) #size of text when cursor hovered over each point
   ))
 ```
