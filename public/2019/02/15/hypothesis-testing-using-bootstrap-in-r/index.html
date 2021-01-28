@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<title>Hypothesis Testing Using Bootstrap in R - Mahmood Hasan</title>
+<meta property="og:title" content="Hypothesis Testing Using Bootstrap in R - Mahmood Hasan">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/softwares/">Softwares</a></li>
+    
+    <li><a href="/presentation/">Presentation</a></li>
+    
+    <li><a href="/contact/">Contact</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Hypothesis Testing Using Bootstrap in R</h1>
+
+    
+    <span class="article-date">2019-02-15</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>Required file: <a href="/pdf/Variables.pdf">Variables</a>.</p>
+<p>This function was written As a practice exercise for a graduate econometrics course. This function can be used to check the null Hypothesis that a variable in an ordinary least square (OLS) regression is zero.</p>
+<pre class="r{}"><code>bootstrap1&lt;-function(y,X,vtest=2,B=99,prm=1){
+  # Perform hypothesis testing for a single variable (not a constant) using Bootstrapping
+  
+  # Input:
+  # y: dependent variable
+  # X: matrix of independent variables (including constant if required)
+  # vtest: which independent/explanatory variable is to be tested for statistical significance
+  # B: number of Bootstrap replications
+  # prm: parametric (1) or non-parametric (0) bootstrap
+  
+  # Output:
+  # A list that contains the following:
+  # (1) Regression output (actual data, under H1)
+  # (2) Value of the respective test statistic, based on actual data
+  # (3) Empirical distribution function based on boostrapping
+  # (4) Boostrap p-value
+  
+
+  #---------------------------------------------------------------  
+  # Preliminaries
+
+  n&lt;-length(y) # Sample Size
+  k&lt;-ncol(X) # Number of variables (including constant if present)
+  
+  
+  # Create matrix with variables, excluding the one to be tested for statistical significance 
+  # (Required for Bootstrap DGP)
+  X1&lt;-X[,-(vtest+1)]
+
+
+  
+  # Estimate Regressions
+  
+  # Under the alternative (H1): include all independent variables
+  h1est1&lt;-lm(y~X-1)
+  # Save summary 
+  h1est_sum&lt;-summary(h1est1)
+  # Obtain value for test statistic
+  that&lt;-coef(h1est_sum)[,&quot;t value&quot;][[vtest+1]]
+  
+  # Under the null hypothesis (H0): exclude variable of interest 
+  h0est1&lt;-lm(y~X1-1)
+  # Save summary
+  h0est_sum&lt;-summary(h0est1)
+    #Save residuals
+  utilde&lt;-h0est1$residuals
+  # Create Efficient Residuals
+  utilde_1&lt;-sqrt(n/(n-k-1))*(utilde-mean(utilde))
+    # Save coefficients (parameter estimates)
+  betatilde&lt;-h0est1$coefficients
+    # Save Residuals Standard Error (estimate for the standard deviation of innovations)
+  sigmatilde&lt;-h0est_sum$sigma
+  
+
+  #----------------------------------------------------------------
+  
+  # Boostrap Processs
+  # Create vector to store simulated test statistics
+  tstar&lt;-rep(0,B)
+  
+  for (b in 1:B){
+  # Generate dependent variable using the DGP under the null
+    
+  # Get Innovations
+  # Parametric (if selected)
+  if (prm==1){  
+   ustar&lt;-sigmatilde*rnorm(n,0,1)
+      }
+  else
+  # Non-parametric (if selected)
+  {
+ustar&lt;-sample(utilde_1,n,replace=TRUE)
+  }
+  
+  # Generate simulated dependent variable  
+  
+    
+  ystar&lt;-ustar
+  
+  for (j in 1:(k-1)){
+    ystar&lt;-ystar+X1[,j]*betatilde[[j]]
+      }
+  
+ 
+    
+  # Estimate Regression
+    
+    # Under the alternative (H1): include all independent variables
+    h1est1star&lt;-lm(ystar~X-1)
+    # Save summary 
+    h1eststar_sum&lt;-summary(h1est1star)
+    # Obtain value for test statistic
+    that_temp&lt;-coef(h1eststar_sum)[,&quot;t value&quot;][[vtest+1]]  
+      tstar[b]&lt;-that_temp
+    
+  }
+ 
+# Calculate p-value for two-tailed test
+  pval=sum(rep(1,B)[abs(tstar)&gt;abs(that)])/B
+   
+# Return a list with output items
+  
+    list(regh1res=h1est_sum, that=that,tstar=tstar,pvalue=pval)
+  
+
+}
+
+X&lt;-matrix(c(Variables$dlgdp,Variables$dlypd,Variables$dlhpi,Variables$dldj),,4)
+X&lt;-cbind(1:1,X)
+y&lt;-matrix(Variables$dlcc,,1)
+
+bootstrap1(y,X,2,B=999,prm=1)
+</code></pre>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-157708919-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

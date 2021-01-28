@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Mahmood Hasan</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Visualization With Software R</title>
+      <link>/2021/01/27/data-visualization-with-software-r/</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/01/27/data-visualization-with-software-r/</guid>
+      <description>PLOTLY
+Loading required packages and data:
+library(readxl) #Use echo = FALSE to hide codesOECDTaxREV &amp;lt;- read_excel(&amp;quot;D:/Website/Data/OECDTaxREV.xlsx&amp;quot;, sheet = &amp;quot;OECDTaxREV&amp;quot;)library(&amp;quot;plotly&amp;quot;)library(&amp;quot;ggplot2&amp;quot;)library(&amp;quot;dplyr&amp;quot;)Using Plotly package to generate plot:
+Data Source: https://data.oecd.org/tax/tax-revenue.htm
+GDP: Nomial GDP in million US dollars (base year = 2012)TaxRev: Tax revenue as a percentage of GDP.TaxWedge: Tax wedge as a percentage of GDP.LOCATION: Indivual Countries
+“x” is the x axis; “y” is the y axis, size refers to size of indivual plots.</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Mobilization</title>
+      <link>/2021/01/27/knowledge-mobilization/</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/01/27/knowledge-mobilization/</guid>
+      <description>Specific question I would like to know what you level of familiarity is with visual design/information design and design software namely data visualization or data storytelling)? Be specific, and if you have examples even better.Answer:The use of Data visualization to better represent data or a concept has been a crucial component of my academic life. I have written several research papers during my undergraduate and graduate studies.</description>
+    </item>
+    
+    <item>
+      <title>Plots with Software STATA</title>
+      <link>/2020/09/12/plots-with-software-stata/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/12/plots-with-software-stata/</guid>
+      <description>These plots are some of the figures I used in my graduate thesis. For more informatation: DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA
+Figure 1 depicts the number of SP system installations in NS from 2016 to 2019. Rebate of $1/Watt was introduced in 2018 and the total numberof installations in 2018 was 78 compared to 33 in 2017. While rebate decreased to$0.85/Watt on March 26, 2019, the total number of installations increased.</description>
+    </item>
+    
+    <item>
+      <title>Plots with Software Tableau</title>
+      <link>/2020/05/20/plots-with-software-tableau/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/05/20/plots-with-software-tableau/</guid>
+      <description>Capacity Factor (CF) is defined as the actual electricity produced by an energy system over the totalcapacity of the system for a given period. CF can be calculated for any electricitygeneration sources using both AC and DC sizes and is used as a metric to analyzethe efficiency of different energy systems.
+Figure shows the variation in CF for different Solar Photovoltaic (SP) system sizes in differentregions of Nova Scotia in 2019.</description>
+    </item>
+    
+    <item>
+      <title>Time Series Projects</title>
+      <link>/2019/06/27/time-series-projects/</link>
+      <pubDate>Thu, 27 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/27/time-series-projects/</guid>
+      <description>Click to view pdf: Better Forecasting: CAPM vs ARMA and Testing for Validity of PPP</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing Using Bootstrap in R</title>
+      <link>/2019/02/15/hypothesis-testing-using-bootstrap-in-r/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/15/hypothesis-testing-using-bootstrap-in-r/</guid>
+      <description>Required file: Variables.
+This function was written As a practice exercise for a graduate econometrics course. This function can be used to check the null Hypothesis that a variable in an ordinary least square (OLS) regression is zero.
+bootstrap1&amp;lt;-function(y,X,vtest=2,B=99,prm=1){# Perform hypothesis testing for a single variable (not a constant) using Bootstrapping# Input:# y: dependent variable# X: matrix of independent variables (including constant if required)# vtest: which independent/explanatory variable is to be tested for statistical significance# B: number of Bootstrap replications# prm: parametric (1) or non-parametric (0) bootstrap# Output:# A list that contains the following:# (1) Regression output (actual data, under H1)# (2) Value of the respective test statistic, based on actual data# (3) Empirical distribution function based on boostrapping# (4) Boostrap p-value#--------------------------------------------------------------- # Preliminariesn&amp;lt;-length(y) # Sample Sizek&amp;lt;-ncol(X) # Number of variables (including constant if present)# Create matrix with variables, excluding the one to be tested for statistical significance # (Required for Bootstrap DGP)X1&amp;lt;-X[,-(vtest+1)]# Estimate Regressions# Under the alternative (H1): include all independent variablesh1est1&amp;lt;-lm(y~X-1)# Save summary h1est_sum&amp;lt;-summary(h1est1)# Obtain value for test statisticthat&amp;lt;-coef(h1est_sum)[,&amp;quot;t value&amp;quot;][[vtest+1]]# Under the null hypothesis (H0): exclude variable of interest h0est1&amp;lt;-lm(y~X1-1)# Save summaryh0est_sum&amp;lt;-summary(h0est1)#Save residualsutilde&amp;lt;-h0est1$residuals# Create Efficient Residualsutilde_1&amp;lt;-sqrt(n/(n-k-1))*(utilde-mean(utilde))# Save coefficients (parameter estimates)betatilde&amp;lt;-h0est1$coefficients# Save Residuals Standard Error (estimate for the standard deviation of innovations)sigmatilde&amp;lt;-h0est_sum$sigma#----------------------------------------------------------------# Boostrap Processs# Create vector to store simulated test statisticststar&amp;lt;-rep(0,B)for (b in 1:B){# Generate dependent variable using the DGP under the null# Get Innovations# Parametric (if selected)if (prm==1){ ustar&amp;lt;-sigmatilde*rnorm(n,0,1)}else# Non-parametric (if selected){ustar&amp;lt;-sample(utilde_1,n,replace=TRUE)}# Generate simulated dependent variable ystar&amp;lt;-ustarfor (j in 1:(k-1)){ystar&amp;lt;-ystar+X1[,j]*betatilde[[j]]}# Estimate Regression# Under the alternative (H1): include all independent variablesh1est1star&amp;lt;-lm(ystar~X-1)# Save summary h1eststar_sum&amp;lt;-summary(h1est1star)# Obtain value for test statisticthat_temp&amp;lt;-coef(h1eststar_sum)[,&amp;quot;t value&amp;quot;][[vtest+1]] tstar[b]&amp;lt;-that_temp}# Calculate p-value for two-tailed testpval=sum(rep(1,B)[abs(tstar)&amp;gt;abs(that)])/B# Return a list with output itemslist(regh1res=h1est_sum, that=that,tstar=tstar,pvalue=pval)}X&amp;lt;-matrix(c(Variables$dlgdp,Variables$dlypd,Variables$dlhpi,Variables$dldj),,4)X&amp;lt;-cbind(1:1,X)y&amp;lt;-matrix(Variables$dlcc,,1)bootstrap1(y,X,2,B=999,prm=1)</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning: Support Vector Machines</title>
+      <link>/2019/01/16/machine-learning-support-vector-machines/</link>
+      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/16/machine-learning-support-vector-machines/</guid>
+      <description>Support Vector Machines (SVMs) were designed to solve pattern classification problems such as optimal character recognition and face identification etc. but the application spread to function approximation, Geo and Environmental Sciences etc.
+There are three main problems in machine learning, viz. Classification, Regression and Density Estimation. In all these cases the main goal is to learn a function (or hypothesis) from the training data.
+Application of theory using R</description>
+    </item>
+    
+  </channel>
+</rss>

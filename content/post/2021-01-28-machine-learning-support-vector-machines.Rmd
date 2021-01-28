@@ -1,0 +1,66 @@
+---
+title: 'Machine Learning: Support Vector Machines'
+author: Mahmood Hasan
+date: '2019-01-16'
+slug: machine-learning-support-vector-machines
+categories: []
+tags: [Machine Learning, Support Vector Machine]
+---
+
+Support Vector Machines (SVMs) were designed to solve pattern classification problems such as optimal character recognition and face identification  etc. but the application spread to function approximation, Geo and Environmental Sciences etc. 
+
+There are three main problems in machine learning, viz. Classification, Regression and Density Estimation. In all these cases the main goal is to learn a function (or hypothesis) from the training data.
+
+**Application of theory using R**
+
+Getting Data and loading packages in R
+
+Data source: https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
+
+
+```{r, message=FALSE, warning=FALSE}
+library(e1071)
+library(ggplot2)
+data(iris)
+```
+
+The data set we are using:
+
+```{r, message=FALSE, warning=FALSE}
+str(iris)
+```
+
+Simple plot of Petal Length Vs Petal Width:
+
+```{r, message=FALSE, warning=FALSE}
+qplot(Petal.Length, Petal.Width, data = iris)
+```
+
+Plot by different **Species**:
+
+```{r, message=FALSE, warning=FALSE}
+qplot(Petal.Length, Petal.Width, data = iris , color = Species)
+```
+
+Running SVM and summarizing the result:
+```{r, message=FALSE, warning=FALSE}
+model1<- svm(Species ~ . , data=iris ,
+             kernel = "linear")
+
+summary(model1)
+```
+
+PLotting and summarizing Predictions:
+```{r, message=FALSE, warning=FALSE}
+plot(model1, data=iris , 
+     Petal.Width~Petal.Length,
+     slice= list(Sepal.Width = 3 , Sepal.Length = 4))
+ pred<- predict(model1, iris)
+ 
+``` 
+
+As the table shows, SVM predicted all of setosa, 46 of versicolor (out of 50) and 49 (out of 50) of virginica species.
+```{r, message=FALSE, warning=FALSE}
+table(Predicted = pred, Actual = iris$Species)
+```
+

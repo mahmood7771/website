@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Time Series on Mahmood Hasan</title>
+    <link>/tags/time-series/</link>
+    <description>Recent content in Time Series on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/time-series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better Forecasting: CAPM vs ARMA</title>
+      <link>/2019/02/15/better-forecasting-capm-vs-arma/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/15/better-forecasting-capm-vs-arma/</guid>
+      <description>The study uses Capital Asset Pricing Model (CAPM) to better predict Auto Regressive Moving Average (ARMA) models using stock return data of BlackBerry Limited and Telus Corporation. CAPM is used to find the relationship between return on stocks and return on market using the following CAPM model,\[\begin{equation}\text{R}_i-\text{R}_{RF} = \alpha + \beta \text{RM}_i - \text{R}_{RF} + \epsilon_t\end{equation}\]
+where R\(_i\) denotes return of two different stocks (BB for BlackBerry Ltd and T for Telus Corporation), R\(_{RF}\) stands for Return of Risk Free stocks (in our case, Canada 30-year Bond Yield) and RM stands for Return of the Market portfolio which in our case is S&amp;amp;P/TSX composite index.</description>
+    </item>
+    
+  </channel>
+</rss>

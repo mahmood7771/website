@@ -1,0 +1,20 @@
+---
+title: "Mahmood Hasan"
+author: "Mahmood Hasan"
+date: 2015-07-23T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+Throughout my academic and professional career, I have gained expertise in collecting data from
+various sources, analyzing, writing, and presenting summarized reports to executive boards using tools such as PowerPoint, R Markdown and Tableau. I have also developed strong programming and analytical skills
+using software such as Stata, R, and EViews to produce high quality economic research. 
+
+I recently graduated with a Master of Arts degree in Economics from Dalhousie University, where I
+have conducted research, both qualitative and quantitative as evident in my [graduate thesis](/Hasan-Mahmood-MA-ECON-April-2020/Project2.pdf). My thesis
+primarily focused on developing a demand model for residential solar photovoltaic systems in Nova Scotia.
+I collected data from several sources including solar industry stakeholders and Statistics Canada to create a panel dataset. Over the course of my graduate studies, I learned and applied time series forecasting methodologies such as ARIMA, ADL, and GARCH, as well as reputed economic frameworks such as the Dynamic Stochastic General Equilibrium model (DSGE), to analyze and forecast economic variables.
+
+I am currently a Benefits Analyst at the Cowan Insurance Group, where I collect insights from
+prescription drug, extended health, and dental claims databases to create reports for external clients’ review. I regularly write Macros using VBA for efficient data analysis and report making to support my growing client inventory. Also, I contribute to optimization projects by using R to analyze claims data and create integrated dashboards. Overall, this role has afforded the opportunity to systematically review and critically appraise evaluations from claims meta-data and liaise with other industry stakeholders and policy makers to develop strategic plans and manage projects. 
+

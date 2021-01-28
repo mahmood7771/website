@@ -1,0 +1,23 @@
+<script src="2021-01-27-data-visualization-with-software-r_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="2021-01-27-data-visualization-with-software-r_files/plotly-binding/plotly.js"></script>
+<script src="2021-01-27-data-visualization-with-software-r_files/typedarray/typedarray.min.js"></script>
+<script src="2021-01-27-data-visualization-with-software-r_files/jquery/jquery.min.js"></script>
+<link href="2021-01-27-data-visualization-with-software-r_files/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="2021-01-27-data-visualization-with-software-r_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="2021-01-27-data-visualization-with-software-r_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="2021-01-27-data-visualization-with-software-r_files/plotly-main/plotly-latest.min.js"></script>
+
+
+<hr />
+<center>
+<img src="/post/wind_Cost.gif" />
+</center>
+<p>Once for a class assignment, we were asked to control the Lorenz system. The instructor recommended us to use MATLAB for assignments, but since I’m inexperienced in MATLAB, I decided to use R to do the assignments, and used the package <code>plotly</code> to make interactive 3D plots of phase portraits[^1] of the Lorenz system. Later, I made the iconic animation to demonstrate chaos – how minuscule differences in the initial condition of the system gets magnified exponentially, resulting into significantly different outcomes. Here, I’ll share how to make such an animation with <code>plotly</code>.</p>
+<p>First things first, what is the Lorenz system? Basically, it’s a system of 3 differential equations, a simplified model of air flow. The equations are:
+<span class="math display">\[\begin{align}
+\frac{dx}{dt} &amp;= \sigma(y - x) \\
+\frac{dy}{dt} &amp;= (\rho - z)x - y \\
+\frac{dz}{dt} &amp;= xy - \beta z
+\end{align}\]</span></p>
+<p>Where <span class="math inline">\(t\)</span> denotes time, <span class="math inline">\(x\)</span> fluid motion, <span class="math inline">\(y\)</span> horizontal temperature, <span class="math inline">\(z\)</span> vertical temperature, and <span class="math inline">\(\sigma, \rho,\)</span> and <span class="math inline">\(\beta\)</span> parameters that specifies the particulars of the system that are constant through time. For <span class="math inline">\(\sigma = 10, \rho = 28, \beta = 8/3\)</span>, this system demonstrates chaotic behavior. Its phase portraits is the iconic butterfly, as we shall soon see.</p>
+<p>Let’s solve the system of equations numerically first. There’re a number of packages that can numerically <a href="https://CRAN.R-project.org/view=DifferentialEquations">solve differential equations in R</a>. One of them is <code>deSolve</code>, which is the one I’m using here. Another one I have used is <code>pracma</code>, which deliberately imitates the syntax of MATLAB. I don’t know enough math to solve the equations analytically, so I resort to a numeric solution.</p>

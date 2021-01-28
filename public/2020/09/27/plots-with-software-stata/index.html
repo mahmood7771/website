@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<title>Plots with Software STATA - Mahmood Hasan</title>
+<meta property="og:title" content="Plots with Software STATA - Mahmood Hasan">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/softwares/">Softwares</a></li>
+    
+    <li><a href="/presentation/">Presentation</a></li>
+    
+    <li><a href="/contact/">Contact</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Plots with Software STATA</h1>
+
+    
+    <span class="article-date">2020-09-27</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>These plots are some of the figures I used in my graduate thesis. For more informatation: <a href="/pdf/Hasan-Mahmood-MA-ECON-April-2020.pdf">DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA</a></p>
+<p>Figure <a href="#fig:installationsandspcost">1</a> depicts the number of SP system installations in NS from 2016 to 2019. Rebate of $1/Watt was introduced in 2018 and the total number
+of installations in 2018 was 78 compared to 33 in 2017. While rebate decreased to
+$0.85/Watt on March 26, 2019, the total number of installations increased.</p>
+<div class="figure" style="text-align: center"><span id="fig:installationsandspcost"></span>
+<img src="/about_files/figure-html/installationsandspcost_for_data.png" alt="Number of Installations Vs Installations Cost " width="70%" height="40%" />
+<p class="caption">
+Figure 1: Number of Installations Vs Installations Cost
+</p>
+</div>
+<p>Figure <a href="#fig:Electricity">2</a> shows the change in percentage contribution of nuclear, renewables and combustible fuels to the total electricity production along with total electricity
+produced by SP systems (secondary axis) in several provinces in Canada from 2012
+to 2018. Total electricity generation in 2012 and 2015 was 595 TWh and 593 TWh respectively, a 0.3% decrease. During this period both total and percentage of electricity
+generation using combustible fuels decreased, while total electricity production
+using non-GHG emitting sources increased from 463 TWh to 483 TWh, a 6% increase.</p>
+<div class="figure" style="text-align: center"><span id="fig:Electricity"></span>
+<img src="/about_files/figure-html/Electricity_generation.png" alt="Number of Installations Vs Installations Cost " width="70%" height="40%" />
+<p class="caption">
+Figure 2: Number of Installations Vs Installations Cost
+</p>
+</div>
+<p>Levelized cost of electricity (LCOE), on the other hand, compares the cost of
+different sources of energy production. The absolute cost to produce electricity by
+different sources cannot be compared as the cost varies by region, project, capital
+cost, maintenance cost, and many other variables. LCOE takes into consideration
+all the different factors that affect electricity price and normalizes it to a comparable
+value in $/kWh.</p>
+<p>Figure <a href="#fig:LCOE">3</a> shows the change in LCOE ($/kWh) of on-shore wind and SP systems
+in the world and NS. LCOE has been decreasing for all renewable energy sources with on-shore wind incurring the lowest cost to produce a kWh of electricity. The
+SP systems in NS that benefited from a $1/Watt rebate in 2018, the LCOE is 0.151
+$/kWh which is a 44% decrease compared to SP systems installed in 2017.</p>
+<div class="figure" style="text-align: center"><span id="fig:LCOE"></span>
+<img src="/about_files/figure-html/LCOE_DC.png" alt="Levelized Cost of Electricity for Different Renewable Sources" width="70%" height="40%" />
+<p class="caption">
+Figure 3: Levelized Cost of Electricity for Different Renewable Sources
+</p>
+</div>
+<p>Generating Poission distribution for different mean values in STATA: Figure <a href="#fig:Poisson">4</a>.</p>
+<pre class="r{}"><code>clear all
+set obs 21
+gen k = _n - 1
+label var k &quot;y = # of events&quot;
+gen psn1 = poissonp(0.05, k)
+label var psn1 &quot;mean = 0.05&quot;
+gen psn2 = poissonp(1.5, k)
+label var psn2 &quot;mean =1.5&quot;
+gen psn3 = poissonp(5, k)
+label var psn3 &quot;mean =5&quot;
+gen psn4 = poissonp(10.5, k)
+label var psn4 &quot;mean = 10.5&quot;
+graph twoway connected psn1 psn2 psn3 psn4 k, ytitle(&quot;Probability&quot;) \\
+ylabel(0(.1) .5) xlabel(0(2)20)\\
+lwidth(thin thin thin thin) msymbol(0 D S T)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:Poisson"></span>
+<img src="/about_files/figure-html/Poisson_distribution.png" alt="Number of Installations Vs Installations Cost " width="70%" height="40%" />
+<p class="caption">
+Figure 4: Number of Installations Vs Installations Cost
+</p>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-157708919-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

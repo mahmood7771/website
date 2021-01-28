@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animation on Mahmood Hasan</title>
+    <link>/tags/animation/</link>
+    <description>Recent content in Animation on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/animation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Visualization With Software R</title>
+      <link>/2021/01/27/data-visualization-with-software-r/</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/01/27/data-visualization-with-software-r/</guid>
+      <description>#For rough writing #{r, echo=FALSE}#&amp;quot;Hello World!&amp;quot;#
+library(readxl)Solar_CapacityVsLCOE &amp;lt;- read_excel(&amp;quot;D:/Website/Data/Solar_CapacityVsLCOE.xlsx&amp;quot;, sheet = &amp;quot;OnShoreWind (2)&amp;quot;)library(&amp;quot;gapminder&amp;quot;)library(&amp;quot;ggplot2&amp;quot;)library(&amp;quot;gganimate&amp;quot;)library(&amp;quot;ggthemes&amp;quot;)library(&amp;quot;dplyr&amp;quot;)library(&amp;quot;png&amp;quot;)library(gifski)WindCost &amp;lt;- Solar_CapacityVsLCOE %&amp;gt;%ggplot(aes(x = Capacityfactor, y=IntalledCost, size = LCOE,color=Country)) +geom_point(alpha = 0.7, stroke =0) +theme_fivethirtyeight()+scale_size(range = c(2, 12), guide = &amp;quot;none&amp;quot;) +scale_x_log10() +labs(title = &amp;quot;Wind Power Installation Cost Vs Capacity Factor&amp;quot;,x = &amp;quot;Capacity Factor (%)&amp;quot;, y = &amp;quot;Installation Cost (USD/KWatt)&amp;quot;,caption = &amp;quot;Animation Plot&amp;quot;)+theme(axis.</description>
+    </item>
+    
+  </channel>
+</rss>

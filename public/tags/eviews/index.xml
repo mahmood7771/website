@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EViews on Mahmood Hasan</title>
+    <link>/tags/eviews/</link>
+    <description>Recent content in EViews on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/eviews/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Softwares</title>
+      <link>/softwares/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/softwares/</guid>
+      <description>Skilled in:
+Advanced: R, Stata, Microsoft Office, LaTex
+Intermediate: EViews, gretl, VBA, Tableau
+Beginner: MATLAB, SAS, ArcGIS, QGIS</description>
+    </item>
+    
+  </channel>
+</rss>

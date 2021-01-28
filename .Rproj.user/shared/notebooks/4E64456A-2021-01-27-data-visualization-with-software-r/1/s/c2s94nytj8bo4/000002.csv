@@ -1,0 +1,20 @@
+"0","
+Solar_CapacityVsLCOE %>%  plot_ly(
+    x = ~Capacityfactor, 
+    y = ~IntalledCost, 
+    size = ~LCOE, 
+    color = ~Continent, 
+    frame = ~Year, 
+    text = ~Continent, 
+    hoverinfo = ""text"",
+    type = 'scatter',
+    mode = 'markers',
+    fil=~'') %>%
+ layout(title = ""Wind Power Installations Cost Vs Capacity Factors"",
+        xaxis=list(title=""Capacity Factors""),
+        yaxis = list(title=""Wind Power Installation Cost 
+                     (USD/kWatt)""))
+"
+"2","Error in Solar_CapacityVsLCOE %>% plot_ly(x = ~Capacityfactor, y = ~IntalledCost,  : 
+  could not find function ""%>%""
+"

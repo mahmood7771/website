@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regression on Mahmood Hasan</title>
+    <link>/tags/regression/</link>
+    <description>Recent content in regression on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate><atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mahmood Hasan</title>
+      <link>/about/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Throughout my academic and professional career, I have gained expertise in collecting data fromvarious sources, analyzing, writing, and presenting summarized reports to executive boards using tools such as PowerPoint, R Markdown and Tableau. I have also developed strong programming and analytical skillsusing software such as Stata, R, and EViews to produce high quality economic research.
+I recently graduated with a Master of Arts degree in Economics from Dalhousie University, where Ihave conducted research, both qualitative and quantitative as evident in my graduate thesis.</description>
+    </item>
+    
+  </channel>
+</rss>

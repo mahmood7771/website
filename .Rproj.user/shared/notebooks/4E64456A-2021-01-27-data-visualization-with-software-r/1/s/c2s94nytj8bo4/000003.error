@@ -1,0 +1,1 @@
+{"frames":[],"message":"Error in Solar_CapacityVsLCOE %>% plot_ly(x = ~Capacityfactor, y = ~IntalledCost,  : \n  could not find function \"%>%\"\n"}

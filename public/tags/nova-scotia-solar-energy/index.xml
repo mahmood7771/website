@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nova Scotia Solar Energy on Mahmood Hasan</title>
+    <link>/tags/nova-scotia-solar-energy/</link>
+    <description>Recent content in Nova Scotia Solar Energy on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/nova-scotia-solar-energy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Plots with Software STATA</title>
+      <link>/2020/09/12/plots-with-software-stata/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/12/plots-with-software-stata/</guid>
+      <description>These plots are some of the figures I used in my graduate thesis. For more informatation: DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA
+Figure 1 depicts the number of SP system installations in NS from 2016 to 2019. Rebate of $1/Watt was introduced in 2018 and the total numberof installations in 2018 was 78 compared to 33 in 2017. While rebate decreased to$0.85/Watt on March 26, 2019, the total number of installations increased.</description>
+    </item>
+    
+  </channel>
+</rss>

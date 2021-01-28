@@ -1,0 +1,126 @@
+---
+title: Hypothesis Testing Using Bootstrap in R
+author: Mahmood Hasan
+date: '2019-02-15'
+slug: hypothesis-testing-using-bootstrap-in-r
+categories: []
+tags: []
+---
+
+
+
+<p>Required file: <a href="/pdf/Variables.pdf">Variables</a>.</p>
+<p>This function was written As a practice exercise for a graduate econometrics course. This function can be used to check the null Hypothesis that a variable in an ordinary least square (OLS) regression is zero.</p>
+<pre class="r{}"><code>bootstrap1&lt;-function(y,X,vtest=2,B=99,prm=1){
+  # Perform hypothesis testing for a single variable (not a constant) using Bootstrapping
+  
+  # Input:
+  # y: dependent variable
+  # X: matrix of independent variables (including constant if required)
+  # vtest: which independent/explanatory variable is to be tested for statistical significance
+  # B: number of Bootstrap replications
+  # prm: parametric (1) or non-parametric (0) bootstrap
+  
+  # Output:
+  # A list that contains the following:
+  # (1) Regression output (actual data, under H1)
+  # (2) Value of the respective test statistic, based on actual data
+  # (3) Empirical distribution function based on boostrapping
+  # (4) Boostrap p-value
+  
+
+  #---------------------------------------------------------------  
+  # Preliminaries
+
+  n&lt;-length(y) # Sample Size
+  k&lt;-ncol(X) # Number of variables (including constant if present)
+  
+  
+  # Create matrix with variables, excluding the one to be tested for statistical significance 
+  # (Required for Bootstrap DGP)
+  X1&lt;-X[,-(vtest+1)]
+
+
+  
+  # Estimate Regressions
+  
+  # Under the alternative (H1): include all independent variables
+  h1est1&lt;-lm(y~X-1)
+  # Save summary 
+  h1est_sum&lt;-summary(h1est1)
+  # Obtain value for test statistic
+  that&lt;-coef(h1est_sum)[,&quot;t value&quot;][[vtest+1]]
+  
+  # Under the null hypothesis (H0): exclude variable of interest 
+  h0est1&lt;-lm(y~X1-1)
+  # Save summary
+  h0est_sum&lt;-summary(h0est1)
+    #Save residuals
+  utilde&lt;-h0est1$residuals
+  # Create Efficient Residuals
+  utilde_1&lt;-sqrt(n/(n-k-1))*(utilde-mean(utilde))
+    # Save coefficients (parameter estimates)
+  betatilde&lt;-h0est1$coefficients
+    # Save Residuals Standard Error (estimate for the standard deviation of innovations)
+  sigmatilde&lt;-h0est_sum$sigma
+  
+
+  #----------------------------------------------------------------
+  
+  # Boostrap Processs
+  # Create vector to store simulated test statistics
+  tstar&lt;-rep(0,B)
+  
+  for (b in 1:B){
+  # Generate dependent variable using the DGP under the null
+    
+  # Get Innovations
+  # Parametric (if selected)
+  if (prm==1){  
+   ustar&lt;-sigmatilde*rnorm(n,0,1)
+      }
+  else
+  # Non-parametric (if selected)
+  {
+ustar&lt;-sample(utilde_1,n,replace=TRUE)
+  }
+  
+  # Generate simulated dependent variable  
+  
+    
+  ystar&lt;-ustar
+  
+  for (j in 1:(k-1)){
+    ystar&lt;-ystar+X1[,j]*betatilde[[j]]
+      }
+  
+ 
+    
+  # Estimate Regression
+    
+    # Under the alternative (H1): include all independent variables
+    h1est1star&lt;-lm(ystar~X-1)
+    # Save summary 
+    h1eststar_sum&lt;-summary(h1est1star)
+    # Obtain value for test statistic
+    that_temp&lt;-coef(h1eststar_sum)[,&quot;t value&quot;][[vtest+1]]  
+      tstar[b]&lt;-that_temp
+    
+  }
+ 
+# Calculate p-value for two-tailed test
+  pval=sum(rep(1,B)[abs(tstar)&gt;abs(that)])/B
+   
+# Return a list with output items
+  
+    list(regh1res=h1est_sum, that=that,tstar=tstar,pvalue=pval)
+  
+
+}
+
+X&lt;-matrix(c(Variables$dlgdp,Variables$dlypd,Variables$dlhpi,Variables$dldj),,4)
+X&lt;-cbind(1:1,X)
+y&lt;-matrix(Variables$dlcc,,1)
+
+bootstrap1(y,X,2,B=999,prm=1)
+</code></pre>

@@ -1,0 +1,145 @@
+---
+title: Data Visualization With Software R
+author: Mahmood Hasan
+date: '2021-01-27'
+slug: data-visualization-with-software-r
+categories: []
+tags: []
+---
+---
+
+**PLOTLY**
+
+Loading required packages and data: 
+
+```{r, message=FALSE, warning=FALSE}
+
+library(readxl)                                              #Use echo = FALSE to hide codes
+OECDTaxREV <- read_excel("D:/Website/Data/OECDTaxREV.xlsx", 
+                         sheet = "OECDTaxREV")
+library("plotly")
+library("ggplot2")
+library("dplyr")
+```
+
+
+
+Using **Plotly** package to generate plot:
+
+Data Source: https://data.oecd.org/tax/tax-revenue.htm 
+
+GDP: Nomial GDP in million US dollars (base year = 2012)
+TaxRev: Tax revenue as a percentage of GDP. 
+TaxWedge: Tax wedge as a percentage of GDP. 
+LOCATION: Indivual Countries
+
+"x" is the x axis; "y" is the y axis, size refers to size of indivual plots.
+```{r, message=FALSE, warning=FALSE}
+
+OECDTaxREV %>% plot_ly(
+  x = ~TaxRev, 
+  y = ~GDP, 
+  size = ~TaxWedge, 
+  color = ~Continent, 
+  frame = ~Year, 
+  text = ~LOCATION, 
+  hoverinfo = "text",
+  type = 'scatter',
+  mode = 'markers',
+  fil=~'') %>%
+  layout(title = "Variation of Tax Revenue Across Different Countries",
+         xaxis=list(title="GDP (USD Million)"),
+         yaxis = list(title="Tax Revenue (% of GDP)"),
+         hoverlabel = list(font=list(size=10) #size of text when cursor hovered over each point
+  ))
+```
+
+
+Making the same plot but with a few countries. To do this I can use extract certain countries (all from Europe and Canada) from the dataset to create a new dataset "newdata".
+
+```{r, message=FALSE, warning=FALSE}
+
+newdata<-OECDTaxREV[OECDTaxREV$Continent == "Europe" | OECDTaxREV$LOCATION == "CAN", ] #new data
+
+newdata %>% plot_ly(
+  x = ~TaxRev, 
+  y = ~GDP, 
+  size = ~TaxWedge, 
+  color = ~LOCATION, 
+  frame = ~Year, 
+  text = ~LOCATION, 
+  hoverinfo = "text",
+  type = 'scatter',
+  mode = 'markers',
+  fil=~'') %>%
+  layout(title = "Variation of Tax Revenue Across Different Countries",
+         xaxis=list(title="GDP (USD Million)"),
+         yaxis = list(title="Tax Revenue (% of GDP)"),
+         hoverlabel = list(font=list(size=10) #size of text when cursor hovered over each point
+  ))
+```
+
+**ggplot2**
+            
+Here I present a animation plot of cost of wind power vs capacity factor varying across time using ggplot 2 package. 
+
+Loading required packages and data: 
+
+```{r, message=FALSE, warning=FALSE}
+library(readxl)
+WindCostVsLCOE <- read_excel("D:/Website/Data/Wind_CapacityVsLCOE.xlsx", 
+                                   sheet = "OnShoreWind (2)")
+library("gapminder")
+library("ggplot2")
+library("gganimate")
+library("ggthemes")
+library("dplyr")
+library("png")
+library("gifski")
+
+```
+
+```{r, message=FALSE, warning=FALSE}
+WindCost <- WindCostVsLCOE %>%
+  ggplot(aes(x = Capacityfactor, y=IntalledCost, size = LCOE,  #size of bubbles
+             color=Continent)) +
+  geom_point(alpha = 0.7, stroke =0) +
+  theme_fivethirtyeight()+
+  scale_size(range = c(2, 12), guide = "none") +
+  scale_x_log10() +
+  labs(title = "Wind Power Cost Vs Capacity Factor",
+       x = "Capacity Factor (%)", y = "Installation Cost (USD/KWatt)",
+       caption = "Animation Plot")+
+  theme(axis.title = element_text(),
+        text = element_text(family = "Rubik"),
+        legend.text = element_text(size=12))+
+  scale_color_brewer(palette="Set1")+
+  transition_time(as.integer(WindCostVsLCOE$Year))+ #as.integer to remove decimal from Year
+  labs(subtitle = "Year:{frame_time}")+
+  shadow_wake(wake_length = 0.1) #to add wave to plot
+
+```
+
+To generate the animation we can use the following code but the file siZe will be too large and rendering time will increase load time of website. 
+
+```{r, message=FALSE, warning=FALSE}
+#animate(WindCost, renderer = gifski_renderer(), duration = 30, end_pause = 60)
+```
+
+To avoid this I save the animation as a gif, decrease size of gif using "gifsicle" package and load it separately.
+
+```{r, message=FALSE, warning=FALSE}
+#anim_save("wind_Cost.gif")
+#brew install gifsicle
+#gifsicle wind_Cost.gif --optimize -O3 --colors 16 --resize 350x350  -o wind_CostF.gif
+
+```
+
+Loading the animation:
+
+<center>
+![](/post/wind_CostF.gif)
+</center>
+
+
+For all economies, the Levelized Cost of Electricty (LCOE) from wind power decreased and Capacity Factor increased over time. However for Asian Economies, the capacity factors of Wind power is among the lowest even in 2018.

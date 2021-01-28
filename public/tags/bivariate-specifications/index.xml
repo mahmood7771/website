@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bivariate Specifications on Mahmood Hasan</title>
+    <link>/tags/bivariate-specifications/</link>
+    <description>Recent content in Bivariate Specifications on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/bivariate-specifications/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Validity of Purchasing Power Parity</title>
+      <link>/2019/04/01/validity-of-purchasing-power-parity/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/01/validity-of-purchasing-power-parity/</guid>
+      <description>Purchasing power parity is an economic theory which states that in the presence of international trade, the price of a single good will be the same across countries under certain assumptions. The log specification is as follows:\[\begin{equation}\text{p}_t (\text{j}) = p_t^* (\text{j}) + \text{S}_t\end{equation}\]
+where p\(_t\)(j) is the price of good j, p\(_t^*\) (j) price of the same good (j) and \(_t\) is the nominal exchange rate. The relationship that we are interested in incorporates all traded and non-traded goods and the equation is:\[\begin{equation}\log \hat{\text{S}} = \log\hat{\text{P}}_t^D - \log \text{P}_t^F\end{equation}\]where \(\hat{\text{P}}_t^{D}\) is domestic price level, \(\text{P}_t^F\) is foreign price level and \(\hat{\text{S}}\) is nominal exchange rate.</description>
+    </item>
+    
+  </channel>
+</rss>

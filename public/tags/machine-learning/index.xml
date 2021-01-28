@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Mahmood Hasan</title>
+    <link>/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Mahmood Hasan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Jan 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning: Support Vector Machines</title>
+      <link>/2019/01/16/machine-learning-support-vector-machines/</link>
+      <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/16/machine-learning-support-vector-machines/</guid>
+      <description>Support Vector Machines (SVMs) were designed to solve pattern classification problems such as optimal character recognition and face identification etc. but the application spread to function approximation, Geo and Environmental Sciences etc.
+There are three main problems in machine learning, viz. Classification, Regression and Density Estimation. In all these cases the main goal is to learn a function (or hypothesis) from the training data.
+Application of theory using R</description>
+    </item>
+    
+  </channel>
+</rss>
