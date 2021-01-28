@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1611832961979.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1281931555",
+    "id" : "EF627C82",
+    "lastKnownWriteTime" : 1611832971,
+    "last_content_update" : 1611832971039,
+    "path" : "D:/Website/Personal_Website/content/softwares.Rmd",
+    "project_path" : "content/softwares.Rmd",
+    "properties" : {
+        "cursorPosition" : "15,51",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
