@@ -1,26 +1,14 @@
 ---
-title: Softwares
+title: Contact
 author: Mahmood Hasan
 date: '2020-03-03'
-slug: softwares
+slug: contact
 categories: []
 tags: []
 ---
-Inlude all softwares that you are proficient in.all of themsss
-
-ss
-#library(ggplot2)
-#oplot <- ggplot(Orange, aes(x = age, 
-                 #  y = circumference, 
-     #              colour = Tree)) +
-  #geom_point() +
-  geom_line() +
-  guides(colour = FALSE) +
-  theme_bw()
-oplot
-
 
 Mahmood Hasan
-LinkedIn
-Email: mahmoodh@dal.ca
-###
+
+[LinkedIn](https://www.linkedin.com/in/mahmood-h/)
+
+Email: mahmood.hasan@dal.ca

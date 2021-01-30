@@ -6,7 +6,7 @@ slug: plots-with-software-stata
 categories: []
 tags: [STATA, Poisson, Bar plots, Line Graphs, Solar, Nova Scotia Solar Energy]
 ---
-These plots are some of the figures I used in my graduate thesis. For more informatation: [DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA](/pdf/Hasan-Mahmood-MA-ECON-April-2020.pdf)
+These plots are some of the figures I used in my graduate thesis. For more information: [DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA](/pdf/Hasan-Mahmood-MA-ECON-April-2020.pdf)
 
 Figure \@ref(fig:installationsandspcost) depicts the number of SP system installations in NS from 2016 to 2019. Rebate of \$1/Watt was introduced in 2018 and the total number
 of installations in 2018 was 78 compared to 33 in 2017. While rebate decreased to

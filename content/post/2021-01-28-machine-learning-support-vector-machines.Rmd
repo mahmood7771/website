@@ -7,7 +7,7 @@ categories: []
 tags: [Machine Learning, Support Vector Machine]
 ---
 
-Support Vector Machines (SVMs) were designed to solve pattern classification problems such as optimal character recognition and face identification  etc. but the application spread to function approximation, Geo and Environmental Sciences etc. 
+Support Vector Machines (SVMs) were designed to solve pattern classification problems such as optimal character recognition and face identification etc. but the application spread to function approximation, Geo and Environmental Sciences etc. 
 
 There are three main problems in machine learning, viz. Classification, Regression and Density Estimation. In all these cases the main goal is to learn a function (or hypothesis) from the training data.
 

@@ -83,6 +83,11 @@
   </url>
   
   <url>
+    <loc>/contact/</loc>
+    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/eviews/</loc>
     <lastmod>2020-03-03T00:00:00+00:00</lastmod>
   </url>
@@ -104,11 +109,6 @@
   
   <url>
     <loc>/tags/sas/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/softwares/</loc>
     <lastmod>2020-03-03T00:00:00+00:00</lastmod>
   </url>
   

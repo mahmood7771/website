@@ -17,8 +17,8 @@
 Loading required packages and data:
 library(readxl) #Use echo = FALSE to hide codesOECDTaxREV &amp;lt;- read_excel(&amp;quot;D:/Website/Data/OECDTaxREV.xlsx&amp;quot;, sheet = &amp;quot;OECDTaxREV&amp;quot;)library(&amp;quot;plotly&amp;quot;)library(&amp;quot;ggplot2&amp;quot;)library(&amp;quot;dplyr&amp;quot;)Using Plotly package to generate plot:
 Data Source: https://data.oecd.org/tax/tax-revenue.htm
-GDP: Nomial GDP in million US dollars (base year = 2012)TaxRev: Tax revenue as a percentage of GDP.TaxWedge: Tax wedge as a percentage of GDP.LOCATION: Indivual Countries
-“x” is the x axis; “y” is the y axis, size refers to size of indivual plots.</description>
+GDP: Nominal GDP in million US dollars (base year = 2012)TaxRev: Tax revenue as a percentage of GDP.TaxWedge: Tax wedge as a percentage of GDP.LOCATION: Individual Countries
+“x” is the x axis; “y” is the y axis, size refers to the size of individual plots.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ GDP: Nomial GDP in million US dollars (base year = 2012)TaxRev: Tax revenue as 
       <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/09/12/plots-with-software-stata/</guid>
-      <description>These plots are some of the figures I used in my graduate thesis. For more informatation: DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA
+      <description>These plots are some of the figures I used in my graduate thesis. For more information: DEMAND FOR RESIDENTIAL SOLAR PHOTOVOLTAIC SYSTEMS: EVIDENCE FROM NOVA SCOTIA
 Figure 1 depicts the number of SP system installations in NS from 2016 to 2019. Rebate of $1/Watt was introduced in 2018 and the total numberof installations in 2018 was 78 compared to 33 in 2017. While rebate decreased to$0.85/Watt on March 26, 2019, the total number of installations increased.</description>
     </item>
     
@@ -51,14 +51,14 @@ Figure shows the variation in CF for different Solar Photovoltaic (SP) system si
     </item>
     
     <item>
-      <title>Softwares</title>
-      <link>/softwares/</link>
+      <title>Contact</title>
+      <link>/contact/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/softwares/</guid>
-      <description>Inlude all softwares that you are proficient in.all of themsss
-ss#library(ggplot2)#oplot &amp;lt;- ggplot(Orange, aes(x = age,# y = circumference,# colour = Tree)) +#geom_point() +geom_line() +guides(colour = FALSE) +theme_bw()oplot
-Mahmood HasanLinkedInEmail: mahmoodh@dal.ca###</description>
+      <guid>/contact/</guid>
+      <description>Mahmood Hasan
+LinkedIn
+Email: mahmood.hasan@dal.ca</description>
     </item>
     
     <item>
@@ -89,8 +89,8 @@ Beginner: MATLAB, SAS, ArcGIS, QGIS</description>
       
       <guid>/2019/02/15/hypothesis-testing-using-bootstrap-in-r/</guid>
       <description>Required file: Variables.
-This function was written As a practice exercise for a graduate econometrics course. This function can be used to check the null Hypothesis that a variable in an ordinary least square (OLS) regression is zero.
-bootstrap1&amp;lt;-function(y,X,vtest=2,B=99,prm=1){# Perform hypothesis testing for a single variable (not a constant) using Bootstrapping# Input:# y: dependent variable# X: matrix of independent variables (including constant if required)# vtest: which independent/explanatory variable is to be tested for statistical significance# B: number of Bootstrap replications# prm: parametric (1) or non-parametric (0) bootstrap# Output:# A list that contains the following:# (1) Regression output (actual data, under H1)# (2) Value of the respective test statistic, based on actual data# (3) Empirical distribution function based on boostrapping# (4) Boostrap p-value#--------------------------------------------------------------- # Preliminariesn&amp;lt;-length(y) # Sample Sizek&amp;lt;-ncol(X) # Number of variables (including constant if present)# Create matrix with variables, excluding the one to be tested for statistical significance # (Required for Bootstrap DGP)X1&amp;lt;-X[,-(vtest+1)]# Estimate Regressions# Under the alternative (H1): include all independent variablesh1est1&amp;lt;-lm(y~X-1)# Save summary h1est_sum&amp;lt;-summary(h1est1)# Obtain value for test statisticthat&amp;lt;-coef(h1est_sum)[,&amp;quot;t value&amp;quot;][[vtest+1]]# Under the null hypothesis (H0): exclude variable of interest h0est1&amp;lt;-lm(y~X1-1)# Save summaryh0est_sum&amp;lt;-summary(h0est1)#Save residualsutilde&amp;lt;-h0est1$residuals# Create Efficient Residualsutilde_1&amp;lt;-sqrt(n/(n-k-1))*(utilde-mean(utilde))# Save coefficients (parameter estimates)betatilde&amp;lt;-h0est1$coefficients# Save Residuals Standard Error (estimate for the standard deviation of innovations)sigmatilde&amp;lt;-h0est_sum$sigma#----------------------------------------------------------------# Boostrap Processs# Create vector to store simulated test statisticststar&amp;lt;-rep(0,B)for (b in 1:B){# Generate dependent variable using the DGP under the null# Get Innovations# Parametric (if selected)if (prm==1){ ustar&amp;lt;-sigmatilde*rnorm(n,0,1)}else# Non-parametric (if selected){ustar&amp;lt;-sample(utilde_1,n,replace=TRUE)}# Generate simulated dependent variable ystar&amp;lt;-ustarfor (j in 1:(k-1)){ystar&amp;lt;-ystar+X1[,j]*betatilde[[j]]}# Estimate Regression# Under the alternative (H1): include all independent variablesh1est1star&amp;lt;-lm(ystar~X-1)# Save summary h1eststar_sum&amp;lt;-summary(h1est1star)# Obtain value for test statisticthat_temp&amp;lt;-coef(h1eststar_sum)[,&amp;quot;t value&amp;quot;][[vtest+1]] tstar[b]&amp;lt;-that_temp}# Calculate p-value for two-tailed testpval=sum(rep(1,B)[abs(tstar)&amp;gt;abs(that)])/B# Return a list with output itemslist(regh1res=h1est_sum, that=that,tstar=tstar,pvalue=pval)}X&amp;lt;-matrix(c(Variables$dlgdp,Variables$dlypd,Variables$dlhpi,Variables$dldj),,4)X&amp;lt;-cbind(1:1,X)y&amp;lt;-matrix(Variables$dlcc,,1)bootstrap1(y,X,2,B=999,prm=1)</description>
+This function was written As a practice exercise for a graduate econometrics course. This function can be used to check the Null Hypothesis that a variable in an ordinary least square (OLS) regression is zero.
+bootstrap1&amp;lt;-function(y,X,vtest=2,B=99,prm=1){# Perform hypothesis testing for a single variable (not a constant) using Bootstrapping# Input:# y: dependent variable# X: matrix of independent variables (including constant if required)# vtest: which independent/explanatory variable is to be tested for statistical significance# B: number of Bootstrap replications# prm: parametric (1) or non-parametric (0) bootstrap# Output:# A list that contains the following:# (1) Regression output (actual data, under H1)# (2) Value of the respective test statistic, based on actual data# (3) Empirical distribution function based on boostrapping# (4) Boostrap p-value#--------------------------------------------------------------- # Preliminariesn&amp;lt;-length(y) # Sample Sizek&amp;lt;-ncol(X) # Number of variables (including constant if present)# Create matrix with variables, excluding the one to be tested for statistical significance # (Required for Bootstrap DGP)X1&amp;lt;-X[,-(vtest+1)]# Estimate Regressions# Under the alternative (H1): include all independent variablesh1est1&amp;lt;-lm(y~X-1)# Save summary h1est_sum&amp;lt;-summary(h1est1)# Obtain value for test statisticthat&amp;lt;-coef(h1est_sum)[,&amp;quot;t value&amp;quot;][[vtest+1]]# Under the null hypothesis (H0): exclude variable of interest h0est1&amp;lt;-lm(y~X1-1)# Save summaryh0est_sum&amp;lt;-summary(h0est1)#Save residualsutilde&amp;lt;-h0est1$residuals# Create Efficient Residualsutilde_1&amp;lt;-sqrt(n/(n-k-1))*(utilde-mean(utilde))# Save coefficients (parameter estimates)betatilde&amp;lt;-h0est1$coefficients# Save Residuals Standard Error (estimate for the standard deviation of innovations)sigmatilde&amp;lt;-h0est_sum$sigma#----------------------------------------------------------------# Boostrap Process# Create vector to store simulated test statisticststar&amp;lt;-rep(0,B)for (b in 1:B){# Generate dependent variable using the DGP under the null# Get Innovations# Parametric (if selected)if (prm==1){ ustar&amp;lt;-sigmatilde*rnorm(n,0,1)}else# Non-parametric (if selected){ustar&amp;lt;-sample(utilde_1,n,replace=TRUE)}# Generate simulated dependent variable ystar&amp;lt;-ustarfor (j in 1:(k-1)){ystar&amp;lt;-ystar+X1[,j]*betatilde[[j]]}# Estimate Regression# Under the alternative (H1): include all independent variablesh1est1star&amp;lt;-lm(ystar~X-1)# Save summary h1eststar_sum&amp;lt;-summary(h1est1star)# Obtain value for test statisticthat_temp&amp;lt;-coef(h1eststar_sum)[,&amp;quot;t value&amp;quot;][[vtest+1]] tstar[b]&amp;lt;-that_temp}# Calculate p-value for two-tailed testpval=sum(rep(1,B)[abs(tstar)&amp;gt;abs(that)])/B# Return a list with output itemslist(regh1res=h1est_sum, that=that,tstar=tstar,pvalue=pval)}X&amp;lt;-matrix(c(Variables$dlgdp,Variables$dlypd,Variables$dlhpi,Variables$dldj),,4)X&amp;lt;-cbind(1:1,X)y&amp;lt;-matrix(Variables$dlcc,,1)bootstrap1(y,X,2,B=999,prm=1)</description>
     </item>
     
     <item>
@@ -122,7 +122,7 @@ Application of theory using R</description>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/about/</guid>
-      <description>Throughout my academic and professional career, I have gained expertise in collecting data fromvarious sources, analyzing, writing, and presenting summarized reports to executive boards using tools such as PowerPoint, R Markdown and Tableau. I have also developed strong programming and analytical skillsusing software such as Stata, R, and EViews to produce high quality economic research.
+      <description>Throughout my academic and professional career, I have gained expertise in collecting data fromvarious sources, analyzing, writing, and presenting summarized reports to executive boards using tools such as PowerPoint, R Markdown and Tableau. I have also developed strong programming and analytical skillsusing software such as Stata, R, and EViews to produce high-quality economic research.
 I recently graduated with a Master of Arts degree in Economics from Dalhousie University, where Ihave conducted research, both qualitative and quantitative as evident in my graduate thesis.</description>
     </item>
     

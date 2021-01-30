@@ -28,12 +28,12 @@ Using **Plotly** package to generate plot:
 
 Data Source: https://data.oecd.org/tax/tax-revenue.htm 
 
-GDP: Nomial GDP in million US dollars (base year = 2012)
+GDP: Nominal GDP in million US dollars (base year = 2012)
 TaxRev: Tax revenue as a percentage of GDP. 
 TaxWedge: Tax wedge as a percentage of GDP. 
-LOCATION: Indivual Countries
+LOCATION: Individual Countries
 
-"x" is the x axis; "y" is the y axis, size refers to size of indivual plots.
+"x" is the x axis; "y" is the y axis, size refers to the size of individual plots.
 ```{r, message=FALSE, warning=FALSE}
 
 OECDTaxREV %>% plot_ly(
@@ -108,7 +108,7 @@ Line_graph  + transition_reveal(Year)   #Animation
 
 
             
-Below I present an animation plot of cost of wind power vs capacity factor varying across time using ggplot 2 package. 
+Below I present an animation plot of the cost of wind power vs capacity factor varying across time using ggplot 2 package. 
 
 Loading required packages and data: 
 
@@ -145,13 +145,13 @@ WindCost <- WindCostVsLCOE %>%
 
 ```
 
-To generate the animation we can use the following code but the file siZe will be too large and rendering time will increase load time of website. 
+To generate the animation we can use the following code but the file size will be too large and rendering time will increase the load time of the website. 
 
 ```{r, message=FALSE, warning=FALSE}
 #animate(WindCost, renderer = gifski_renderer(), duration = 30, end_pause = 60)
 ```
 
-To avoid this I save the animation as a gif, decrease size of gif using "gifsicle" package and load it separately.
+To avoid this I save the animation as a gif, decrease the size of gif using "gifsicle" package and load it separately.
 
 ```{r, message=FALSE, warning=FALSE}
 #anim_save("wind_Cost.gif")
@@ -167,7 +167,7 @@ Loading the animation:
 </center>
 
 
-For all economies, the Levelized Cost of Electricty (LCOE) from wind power decreased and Capacity Factor increased over time. However for Asian Economies, the capacity factors of Wind power is among the lowest even in 2018.
+For all economies, the Levelized Cost of Electricity (LCOE) from wind power decreased and Capacity Factor increased over time. However, for Asian Economies, the capacity factor of Wind power is among the lowest even in 2018.
 
 
 
