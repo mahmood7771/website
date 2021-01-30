@@ -7,20 +7,25 @@ categories: []
 tags: [K* Continuum, Knowledge Mobilization]
 ---
 
-1) Answer:
+1) Specific question I would like to know what you level of familiarity is with visual design/information design and design software namely data visualization or data storytelling)? Be specific, and if you have examples even better.
 
+Answer:
 The use of Data visualization to better represent data or a concept has been a crucial component of my academic life. I have written several research papers during my undergraduate and graduate studies. I used software, such as STATA (for continuous and discrete data), GRETL and EViews (for time series data) and Excel. Moreover, I took a course in software R which focused primarily on data visualizations. In R, I have expertise in using packages such as “ggplot”, “plotly”, “gganimate”, “gifski” and “googleVis” to name a few.
 
  Additionally, I am proficient in using Tableau to do visual design/information design. Specifically, I can collect data from various sources, clean data and make interactive dashboards. Among other charts and plots, I have also prepared interactive dashboards using Slicer in Microsoft Excel.
 Please visit www.mahmoodh.com  for specific data visualization examples.
 
 
-2) Answer:
+2) Specific question, I would like to know if we would be able to keep your CV on file, there is significant interest in hiring people with skillsets and backgrounds that are different from where we traditionally recruit, and this will not be the last call for job openings within the Research Innovation Lab Directorate.
 
+Answer:
 Yes.
 
-3) Answer:
+3) More general question I have included two diagrams that present a modelling of the knowledge mobilization continuum (this is just one of many examples of knowledge mobilization or knowledge translation). I am curious based on your experience, your strengths/weaknesses, or your interests (where you would like to improve), where you see yourself within these diagrams?
 
+
+
+Answer:
 The activities of collaboration and dialogue under the Co-Creation domain has been an integral part of my academic and work career. For example, while working on my thesis- ‘Demand Modelling of Solar Photovoltaic: Evidence from Nova Scotia’- due to lack of available data on the Solar industry, I had to communicate with several industry stakeholders and local government authorities to collect information and data. Moreover, the intensity and importance of my work required weekly meetings with my thesis committee. Co-Creation played a major role in creating the final product. 
 
 
