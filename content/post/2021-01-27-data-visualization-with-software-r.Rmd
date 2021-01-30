@@ -80,6 +80,33 @@ newdata %>% plot_ly(
 ```
 
 **ggplot2**
+
+Changes in different tax rates as a \% of GDP from the years 2000 to 2019.
+
+```{r, message=FALSE, warning=FALSE, out.width= "100%"}
+library(readxl)                                 #out.width used as plot was going out of page
+OECDTaxREVCAD <- read_excel("D:/Website/Data/OECDTaxREV.xlsx", 
+                         sheet = "OECDTaxREVCAD")
+library("gganimate")
+library("ggthemes")
+library("dplyr")
+library("png")
+library("gifski")
+
+Line_graph <- OECDTaxREVCAD %>%
+            ggplot(aes(x=Year, y=Tax_perc_GDP, color = Types))+
+            geom_point(aes(x=Year, y=Tax_perc_GDP))+
+            labs(title = "Change of Tax Rates in Canada",
+            y="Tax Rates (% of GDP)")+
+            geom_line(size=1.5, alpha = 0.5)+
+            theme(axis.title = element_text(),
+        text = element_text(family = "Rubik"),
+        legend.text = element_text(size=12))
+            
+Line_graph  + transition_reveal(Year)   #Animation 
+```
+
+
             
 Here I present a animation plot of cost of wind power vs capacity factor varying across time using ggplot 2 package. 
 
@@ -89,8 +116,6 @@ Loading required packages and data:
 library(readxl)
 WindCostVsLCOE <- read_excel("D:/Website/Data/Wind_CapacityVsLCOE.xlsx", 
                                    sheet = "OnShoreWind (2)")
-library("gapminder")
-library("ggplot2")
 library("gganimate")
 library("ggthemes")
 library("dplyr")
@@ -143,3 +168,9 @@ Loading the animation:
 
 
 For all economies, the Levelized Cost of Electricty (LCOE) from wind power decreased and Capacity Factor increased over time. However for Asian Economies, the capacity factors of Wind power is among the lowest even in 2018.
+
+
+
+
+
+
