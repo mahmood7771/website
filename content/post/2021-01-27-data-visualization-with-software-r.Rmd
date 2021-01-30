@@ -108,7 +108,7 @@ Line_graph  + transition_reveal(Year)   #Animation
 
 
             
-Here I present a animation plot of cost of wind power vs capacity factor varying across time using ggplot 2 package. 
+Below I present an animation plot of cost of wind power vs capacity factor varying across time using ggplot 2 package. 
 
 Loading required packages and data: 
 
