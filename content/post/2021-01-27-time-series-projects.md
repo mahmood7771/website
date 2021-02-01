@@ -6,4 +6,4 @@ slug: time-series-projects
 categories: []
 tags: []
 ---
-Click to view pdf: [Better Forecasting: CAPM vs ARMA](/pdf/Project1_Mahmood.pdf) and [Testing for Validity of PPP](/pdf/Project2.pdf)  
+Click to view pdf: [Better Forecasting: CAPM vs ARMA](/pdf/Project1.pdf) and [Testing for Validity of PPP](/pdf/Project2.pdf)  
